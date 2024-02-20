@@ -38,7 +38,7 @@
                 <!-- upload -->
                 <div class="col-md-8">
                     <h1 class="page-title"><span>آپلود</span> فیلم</h1>
-                    <form action="{{ route('videos.update', $video->slug) }}" method="POST">
+                    <form action="{{ route('videos.update', $video->slug) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="row">
@@ -46,17 +46,17 @@
                                 <label>@lang('videos.name')</label>
                                 <input type="text" name="name" class="form-control" value="{{ $video->name }}" placeholder="@lang('videos.name')">
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <label>@lang('videos.length')</label>
                                 <input type="text" name="length" class="form-control" value="{{ $video->length }}" placeholder="@lang('videos.length')">
-                            </div>
+                            </div> --}}
                             <div class="col-md-6">
                                 <label>@lang('videos.slug')</label>
                                 <input type="text" name="slug" class="form-control" value="{{ $video->slug }}" placeholder="@lang('videos.slug')">
                             </div>
                             <div class="col-md-6">
                                 <label>@lang('videos.url')</label>
-                                <input id="upload_file" name="url" type="text" class="form-control" value="{{ $video->url }}" placeholder="@lang('videos.url')">
+                                <input id="upload_file" name="file" type="file" class="form-control" placeholder="@lang('videos.url')">
                             </div>
                             <div class="col-md-6">
                                 <label>دسته بندی</label>
@@ -70,10 +70,10 @@
                                 <label>@lang('videos.descriptions')</label>
                                 <textarea class="form-control" name="descriptions" rows="4" value="{{ $video->descriptions }}" placeholder="@lang('videos.descriptions')"></textarea>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <label>@lang('videos.thumbnail')</label>
                                 <input id="featured_image" name="thumbnail" type="text" class="form-control" value="{{ $video->thumbnail }}" placeholder="@lang('videos.thumbnail')">
-                            </div>
+                            </div> --}}
                             <div class="col-md-6">
                                 <button type="submit" id="contact_submit" class="btn btn-dm">ذخیره</button>
                             </div>

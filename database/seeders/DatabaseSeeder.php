@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call(VideoSeeder::class);
+        $this->call([
+            CategorySeeder::class,
+            VideoSeeder::class
+        ]);
     }
 }

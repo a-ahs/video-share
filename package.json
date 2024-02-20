@@ -1,6 +1,5 @@
 {
     "private": true,
-    "type": "commonjs",
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
@@ -11,9 +10,15 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@tailwindcss/forms": "^0.5.2",
+        "alpinejs": "^3.4.2",
+        "autoprefixer": "^10.4.2",
         "axios": "^1.6.1",
         "laravel-mix": "^6.0.49",
-        "lodash": "^4.17.21"
+        "lodash": "^4.17.21",
+        "postcss": "^8.4.6",
+        "postcss-import": "^12.0.1",
+        "tailwindcss": "^3.1.0"
     },
     "dependencies": {
         "jquery": "^3.7.1"

@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'provider',
+        'provider_id',
+        'email_verified_at',
     ];
 
     /**
@@ -42,4 +45,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getGravatarAttribute()
+    {
+        $hash = md5(strtolower($this->attributes['email']));
+        return "https://s.gravatar.com/$hash";
+    }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
+
+    public function Comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
