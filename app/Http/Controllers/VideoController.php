@@ -18,7 +18,6 @@ class VideoController extends Controller
 
     public function __construct()
     {
-        $this->authorizeResource(Video::class, 'video');
     }
 
     public function create()
@@ -43,12 +42,16 @@ class VideoController extends Controller
 
     public function edit(Video $video)
     {                
+        $this->authorize('update', $video);
+
         $categories = Category::all();
         return view('videos.edit', compact('video', 'categories'));
     }
 
     public function update(UpdateVideoRequest $request, Video $video)
     {
+        $this->authorize('update', $video);
+
         (new VideoService)->update($video, $request->all());
         return redirect()->route('videos.show', $video->slug)->with('success', 'آپدیت موفقیت آمیز بود');
     }
